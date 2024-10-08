@@ -9,7 +9,6 @@ const productcontrollers = async (req, res) => {
       .status(400)
       .json({ message: "Please provide Product_name, Product_price, and Product_description" });
   }
-
   try {
     // Check if the product already exists
     const productdetails = await Products.findOne({ Product_name: Product_name });
