@@ -3,19 +3,19 @@ const mongoose = require("mongoose");
 const salesSchema = new mongoose.Schema({
   agentmail: {
     type: String,
-    ref: "Agent",
+    ref: "Agents",
     required: true,
   },
-  leademail: {
+  leadmail: {
     type: String,
-    ref: "Lead", 
+    ref: "Leads", 
     required: true,
   },
   productsSold: [
     {
       productId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Product", 
+        ref: "Product",
         required: true,
       },
       productName: {
@@ -23,7 +23,7 @@ const salesSchema = new mongoose.Schema({
         required: true,
       },
       price: {
-        type: Number, 
+        type: Number,
         required: true,
       },
       quantity: {
@@ -37,7 +37,5 @@ const salesSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
-
-
 
 module.exports = mongoose.model("Sale", salesSchema);

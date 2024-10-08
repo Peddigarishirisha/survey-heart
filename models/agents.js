@@ -1,25 +1,24 @@
-const mongoose=require("mongoose")
+const mongoose = require("mongoose");
+
 const agentSchema = new mongoose.Schema({
-  Name: {
+  name: {  
     type: String,
-    required: true,
+    required: true, 
   },
-  Email: {
+  email: {  
     type: String,
-    require: true,
+    required: true, 
     unique: true,
   },
-  Phonenumber: {
+  phonenumber: {  
     type: Number,
-    require: true,
+    required: true, 
     unique: true,
   },
-  Customer_id: {
+  customer_id: {  
     type: Number,
-    require: true,
-    unique: true,
+    required: true, 
   },
 });
 
-module.exports =mongoose.model("Agents",agentSchema)
-
+module.exports = mongoose.models.Agents || mongoose.model("Agents", agentSchema);

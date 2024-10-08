@@ -1,20 +1,21 @@
-const mongoose=require("mongoose")
-const ProductSchema=new mongoose.Schema({
+const mongoose = require("mongoose");
 
-Product_name:{
-    type:String,
-    require:true,
-    unique:true
-},
-Product_price:{
+// Define the schema
+const ProductSchema = new mongoose.Schema({
+  Product_name: {
+    type: String,
+    required: true, // Corrected 'require' to 'required'
+    unique: true
+  },
+  Product_price: {
+    type: Number,
+    required: true // Corrected 'require' to 'required'
+  },
+  Product_description: {
+    type: String,
+    required: true // Corrected 'require' to 'required'
+  }
+});
 
-    type:Number,
-    require:true
-},
-Product_description:{
-    type:String,
-    require:true
-},
-
-})
-module.exports = mongoose.model("Product",ProductSchema)
+// Check if the model already exists before compiling
+module.exports = mongoose.models.Product || mongoose.model("Product", ProductSchema);
