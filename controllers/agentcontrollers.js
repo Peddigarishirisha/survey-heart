@@ -4,10 +4,10 @@ const { agentValidationSchema } = require('../models/validations');
 
 const createagents = async (req, res) => {
   try {
-    const { name, email, phone, company_id } = req.body;
+    const { name, email, phonenumber, company_id } = req.body;
 
     // Validate input using Joi
-    const { value, error } = agentValidattionSchema.validate(req.body, { abortEarly: false });
+    const { value, error } = agentValidationSchema.validate(req.body, { abortEarly: false });
     
     if (error) {
       const formattedErrors = error.details.map(err => ({
@@ -32,7 +32,7 @@ const createagents = async (req, res) => {
     const newAgent = new Agents({
       name,
       email,
-      phone,
+      phonenumber,
       company_id,
     });
 

@@ -15,7 +15,7 @@ const agentSchema = new mongoose.Schema({
     required: true, 
     unique: true,
   },
-  customer_id: {  
+  company_id: {  
     type: Number,
     required: true, 
   },

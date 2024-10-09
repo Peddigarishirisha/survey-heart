@@ -1,12 +1,12 @@
 const Agents = require("../models/agents");
 const Leads = require("../models/leads");
-const Product = require("../models/products");  // Ensure you have this model
+const Product = require("../models/products");  
 const Sale = require("../models/sales");
 
 const salesDetails = async (req, res) => {
   try {
     const { agentmail, leadmail, productId, saleDate } = req.body;
-
+console.log(agentmail, leadmail, productId, saleDate)
     // Find the agent by email
     const agent = await Agents.findOne({ email: { $regex: new RegExp(`^${agentmail}$`, "i") } });
 
