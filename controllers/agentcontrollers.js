@@ -1,5 +1,6 @@
 const Agents = require("../models/agents");
-const { agentValidattionSchema } = require("../validations/agentValidation");
+const { agentValidationSchema } = require('../models/validations');
+
 
 const createagents = async (req, res) => {
   try {

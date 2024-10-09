@@ -12,4 +12,4 @@ const agentValidationSchema = joi.object({
   company_id: joi.number().integer().min(1).required(),
 });
 
-module.exports = {agentValidattionSchema};
+module.exports = {agentValidationSchema};
