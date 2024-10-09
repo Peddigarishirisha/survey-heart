@@ -1,6 +1,6 @@
 const Agents = require("../models/agents");
 const Leads = require("../models/leads");
-const Product = require("../models/products");  
+const Product = require("../models/Products");  
 const Sale = require("../models/sales");
 
 const salesDetails = async (req, res) => {
