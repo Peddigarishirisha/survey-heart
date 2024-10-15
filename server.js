@@ -4,14 +4,14 @@ const app = express();
 app.use(express.json());
 const port = 5006;
 
-// Controllers
+
 const createagentscontrollers = require("./controllers/agentcontrollers");
 const productcontrollers = require("./controllers/productcontrollers");
 const Leadcontrollers = require("./controllers/leadscontrollers");
 const salesDetails=require("./controllers/salescontrollers")
 const salessummaryController=require("./controllers/salessummarycontrollers")
 const uri = "mongodb+srv://shirishapeddigari:shirisha123@surveytaskcluster.sfmq6.mongodb.net/?retryWrites=true&w=majority&appName=surveytaskcluster"
-// MongoDB connection
+
 mongoose.connect(uri, {dbName:"salesDB"})
   .then(() => {
     console.log("MongoDB successfully connected");
@@ -20,11 +20,11 @@ mongoose.connect(uri, {dbName:"salesDB"})
     console.log("MongoDB not connected", err);
   });
 
-// Routes
+
 app.post("/product", productcontrollers);
 app.post("/agent",createagentscontrollers)
 app.post("/lead",Leadcontrollers)
-app.post("/sales",salesDetails)
+app.post("/sale",salesDetails)
 
 
 

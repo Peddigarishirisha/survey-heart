@@ -9,7 +9,7 @@ const Leadcontrollers = async (req,res)=>{
     try{
         const existagent=await Leads.findOne({Agent_email:Agent_email})
         if(existagent){
-            return res.status(201).send("Agent already exists")
+            return res.status(201).send("Lead already exists")
         }
         const newLead = new Leads({
             Name,

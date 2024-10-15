@@ -1,12 +1,11 @@
+const Product = require("../models/Products");
 const Agents = require("../models/agents");
-const Leads = require("../models/leads");
-const Product = require("../models/products");  
+const Leads = require("../models/leads"); 
 const Sale = require("../models/sales");
 
 const salesDetails = async (req, res) => {
   try {
-    const { agentmail, leadmail, productId, saleDate } = req.body;
-console.log(agentmail, leadmail, productId, saleDate)
+    const { agentmail, leadmail, productsSold, saleDate} = req.body;
     // Find the agent by email
     const agent = await Agents.findOne({ email: { $regex: new RegExp(`^${agentmail}$`, "i") } });
 
@@ -15,16 +14,19 @@ console.log(agentmail, leadmail, productId, saleDate)
     }
 
     // Find the lead by email
-    const lead = await Leads.findOne({ email: leadmail });
+    const lead = await Leads.findOne({ Email: leadmail });
+    // console.log(email)
     if (!lead) {
       return res.status(404).json({ message: "Lead not found" });
     }
 
-  
-    const product = await Product.findById(productId);
-    if (!product) {
+  productsSold.forEach(async product => {
+    const isProductExist = await Product.findById(product.productId);
+    console.log(isProductExist)
+    if (!isProductExist) {
       return res.status(404).json({ message: "Product not found" });
     }
+  });
 
     // Check if a sale already exists for this lead
     const existingSale = await Sale.findOne({ agentmail, leadmail });
@@ -36,13 +38,7 @@ console.log(agentmail, leadmail, productId, saleDate)
     const sale = new Sale({
       agentmail,
       leadmail,
-      productsSold: [
-        {
-          productId: product._id,
-          productName: product.name,
-          price: product.price,
-        },
-      ],
+      productsSold: productsSold,
       saleDate,
     });
 

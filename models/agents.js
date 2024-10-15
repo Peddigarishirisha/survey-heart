@@ -20,5 +20,6 @@ const agentSchema = new mongoose.Schema({
     required: true, 
   },
 });
+const Agents=  mongoose.model("Agents", agentSchema);
 
-module.exports = mongoose.models.Agents || mongoose.model("Agents", agentSchema);
+module.exports =  Agents
