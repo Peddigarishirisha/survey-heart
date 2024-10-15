@@ -1,6 +1,11 @@
 const Product = require("../models/Products");
 const Agents = require("../models/agents");
+<<<<<<< HEAD
 const Leads = require("../models/leads"); 
+=======
+const Leads = require("../models/leads");
+const Product = require("../models/Products");  
+>>>>>>> 9037f2aae1d48778b26aad5e4ad5ae5d4a66b26f
 const Sale = require("../models/sales");
 
 const salesDetails = async (req, res) => {
