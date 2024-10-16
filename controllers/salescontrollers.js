@@ -2,7 +2,7 @@ const Product = require("../models/Products");
 const Agents = require("../models/agents");
 
 const Leads = require("../models/leads"); 
-
+ const sale= require("../models/sales")
 
 const salesDetails = async (req, res) => {
   try {
