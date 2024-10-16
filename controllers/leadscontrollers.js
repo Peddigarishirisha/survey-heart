@@ -1,8 +1,8 @@
 const express=require("express");
 const Leads=require("../models/leads")
 const Leadcontrollers = async (req,res)=>{
-    const {Name,Email,Phonenumber,Age,City,State,Country,Pincode,Agent_email} = req.body;
-    if(!Name,!Email,!Phonenumber,!City,!State,!Country,!Pincode,!Agent_email){
+    const {Name,Email,Phone,Age,City,State,Country,Pincode,Agent_email} = req.body;
+    if(!Name,!Email,!Phone,!City,!State,!Country,!Pincode,!Agent_email){
         return res.status(404).send("All fields are mandatory")
     }
 
@@ -14,7 +14,7 @@ const Leadcontrollers = async (req,res)=>{
         const newLead = new Leads({
             Name,
             Email,
-            Phonenumber,
+            Phone,
             Age,
             City,
             State,
