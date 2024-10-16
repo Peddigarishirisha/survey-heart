@@ -10,6 +10,7 @@ const agentValidationSchema = joi.object({
     'string.pattern.base': 'Phone number must contain only digits.'
   }),
   company_id: joi.number().integer().min(1).required(),
+ 
 });
 
 module.exports = {agentValidationSchema};

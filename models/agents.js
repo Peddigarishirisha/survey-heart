@@ -12,13 +12,14 @@ const agentSchema = new mongoose.Schema({
   },
   phonenumber: {  
     type: Number,
-    required: true, 
-    unique: true,
+    required: true
+ 
   },
   company_id: {  
     type: Number,
     required: true, 
-  },
+  }
+
 });
 const Agents=  mongoose.model("Agents", agentSchema);
 
